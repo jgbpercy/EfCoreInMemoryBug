@@ -15,8 +15,8 @@ namespace EfCoreInMemoryBug
 
             var context = new TheDbContext(options);
 
-            var projectModels = await context.Thingers
-                .Select(t => new ProjectedModels { Something = t.Something, NumberOfDoDars = t.DoDars.Count })
+            await context.Thingers
+                .Select(t => new ProjectedModel { Something = t.Something, NumberOfDoDars = t.DoDars.Count })
                 .ToArrayAsync();
         }
 
@@ -27,8 +27,8 @@ namespace EfCoreInMemoryBug
 
             var context = new TheDbContext(options);
 
-            var projectModels = await context.Thingers
-                .Select(t => new ProjectedModels(t.Something, t.DoDars.Count))
+            await context.Thingers
+                .Select(t => new ProjectedModel(t.Something, t.DoDars.Count))
                 .ToArrayAsync();
         }
 
@@ -39,8 +39,8 @@ namespace EfCoreInMemoryBug
 
             var context = new TheDbContext(options);
 
-            var projectModels = await context.Thingers
-                .Select(t => new ProjectedModels(t.Something) { NumberOfDoDars = t.DoDars.Count })
+            await context.Thingers
+                .Select(t => new ProjectedModel(t.Something) { NumberOfDoDars = t.DoDars.Count })
                 .ToArrayAsync();
         }
 
@@ -51,8 +51,8 @@ namespace EfCoreInMemoryBug
 
             var context = new TheDbContext(options);
 
-            var projectModels = await context.Thingers
-                .Select(t => new ProjectedModels(t.DoDars.Count) { Something = t.Something })
+            await context.Thingers
+                .Select(t => new ProjectedModel(t.DoDars.Count) { Something = t.Something })
                 .ToArrayAsync();
         }
 
@@ -69,8 +69,8 @@ namespace EfCoreInMemoryBug
 
             context.Database.EnsureCreated();
 
-            var projectModels = await context.Thingers
-                .Select(t => new ProjectedModels(t.Something, t.DoDars.Count))
+            await context.Thingers
+                .Select(t => new ProjectedModel(t.Something, t.DoDars.Count))
                 .ToArrayAsync();
         }
     }

@@ -1,24 +1,24 @@
 ﻿namespace EfCoreInMemoryBug
 {
-    public class ProjectedModels
+    public class ProjectedModel
     {
         public string Something { get; set; }
 
         public int NumberOfDoDars { get; set; }
 
-        public ProjectedModels() { }
+        public ProjectedModel() { }
 
-        public ProjectedModels(string something)
+        public ProjectedModel(string something)
         {
             Something = something;
         }
 
-        public ProjectedModels(int numberOfDoDars)
+        public ProjectedModel(int numberOfDoDars)
         {
             NumberOfDoDars = numberOfDoDars;
         }
 
-        public ProjectedModels(
+        public ProjectedModel(
             string something,
             int numberOfDoDars)
         {
